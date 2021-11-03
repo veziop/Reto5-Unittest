@@ -11,6 +11,7 @@ class TestGeometria(unittest.TestCase):
             Geometria(randint(2, 15), randint(2,15), randint(2, 15))
             for i in range(10)
         ]
+        self.view = View()
 
     def test_geometria(self):
         for shape in self.shapes:
@@ -18,10 +19,10 @@ class TestGeometria(unittest.TestCase):
                 with self.subTest():
                     self.assertIsNotNone(shape.switch(i))
 
-
-
-
-
+    def test_view(self):
+        for shape in self.shapes:
+            self.assertIsNone(self.view.select(shape))
+            # self.assert_(self.view.select(shape))
 
 
 if __name__ == '__main__':
